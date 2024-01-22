@@ -3,7 +3,8 @@ class Solution {
         if(haystack==null||needle==null)
             return -1;
         if(haystack.equals(needle)) return 0;
-        for(int i=0;i<haystack.length()-needle.length()+1;i++){
+        for(int i=0;i<haystack.length()-needle.length()+1;i++){        
+            //to run the loop till last position of haystack where needle can be found
             if(haystack.substring(i,i+needle.length()).equals(needle))   return i;
         }
         return -1;
