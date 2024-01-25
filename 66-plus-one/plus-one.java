@@ -7,7 +7,7 @@ class Solution {
             digits[i]=0;
        }
        digits=new int[digits.length+1];
-       digits[0]=1;
+       digits[0]=1; //since all other are having 0 by default only
        return digits;
     }
 }
