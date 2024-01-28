@@ -7,7 +7,8 @@ class Solution {
             return sum;
         }
         else{
-        for(int i=0;i<s.length()-1;i++){
+        for(int i=0;i<s.length()-1;i++){   
+//run the loop till second last element of string
             if(value(s.charAt(i))>=value(s.charAt(i+1)))
                 sum=sum+value(s.charAt(i));
             else{
@@ -16,7 +17,7 @@ class Solution {
                 i++;
             }
         }
-      
+      //to check for the last element of string
         if(value(s.charAt(s.length()-1))<=value(s.charAt(s.length()-2)))
             sum=sum+value(s.charAt(s.length()-1));
         }
