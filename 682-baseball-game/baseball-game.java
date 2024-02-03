@@ -12,9 +12,8 @@ class Solution {
                 st.push(c);
             }
             else if(operations[i].equals("D")){
-                int a=st.pop();
+                int a=st.peek();
                 int c=2*a;
-                st.push(a);
                 st.push(c);
             }
              else if(operations[i].equals("C")){
