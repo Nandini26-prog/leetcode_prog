@@ -7,8 +7,7 @@ class Solution {
             else if(moves.charAt(i)=='U')   count2++;
             else count2--;
         }
-        if(count1==0 && count2==0)
-            return true;
-        else return false;
+        return (count1==0 && count2==0);
+            
     }
 }
