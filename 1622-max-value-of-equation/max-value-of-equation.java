@@ -1,29 +1,22 @@
 class Solution {
     public int findMaxValueOfEquation(int[][] points, int k) {
-         int maxValue = Integer.MIN_VALUE;
-        // Max-Heap based on the value (yi - xi)
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> Integer.compare(b[0], a[0]));
-
-        for (int[] point : points) {
-            int xj = point[0];
-            int yj = point[1];
-
-            // Remove points where xi < xj - k
-            while (!pq.isEmpty() && xj - pq.peek()[1] > k) {
-                pq.poll();
+        int flag = 1;
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i < points.length; i++){
+            if(flag < i + 1) flag = i + 1;
+            for(int j = flag; j < points.length; j++){
+                int mod = points[j][0] - points[i][0];
+                if(mod <= k){
+                    int eq = points[i][1] + points[j][1] + mod;
+                    if(eq > max){
+                        max = eq;
+                        flag = j;
+                    }
+                } else {
+                    break;
+                }
             }
-
-            // Calculate the max value if there are valid points in the heap
-            if (!pq.isEmpty()) {
-                int[] top = pq.peek();
-                int currentMaxValue = yj + xj + top[0];
-                maxValue = Math.max(maxValue, currentMaxValue);
-            }
-
-            // Push the current (yi - xi, xi) into the heap
-            pq.offer(new int[]{yj - xj, xj});
         }
-
-        return maxValue;
+        return max;
     }
 }
