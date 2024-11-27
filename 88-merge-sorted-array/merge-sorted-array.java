@@ -14,11 +14,12 @@ class Solution {
             }
             else break;
         }
-          Arrays.sort(nums2);
+            Arrays.sort(nums1, 0, m); // Sort only the valid part of nums1
+        Arrays.sort(nums2);
         for(int i=0;i<n;i++){
             nums1[i+m]=nums2[i];
         }
-        Arrays.sort(nums1);
+     
 
      //BRUTE FORCE  
 
